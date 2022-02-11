@@ -10,7 +10,16 @@ public class Main {
 
 	public static void main(String[] args) throws Exception {
         ClientConfig clientConfig = new ClientConfig();
-        clientConfig.getNetworkConfig().addAddress("hz-hazelcast");
+
+        // LOCAL - Para que se conecte al cluster levantado en Eclipse
+//        clientConfig.setClusterName("eclipse-cluster");
+
+        // DOCKER - Para que se conecte al cluster pulbic-ip
+        clientConfig.setClusterName("docker-network");
+        
+        // KUBERNETES????
+        //        clientConfig.getNetworkConfig().addAddress("hz-hazelcast");
+
         HazelcastInstance client = HazelcastClient.newHazelcastClient(clientConfig);
 
 		// Common data map
