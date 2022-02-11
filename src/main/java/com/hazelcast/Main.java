@@ -14,11 +14,12 @@ public class Main {
         // LOCAL - Para que se conecte al cluster levantado en Eclipse
 //        clientConfig.setClusterName("eclipse-cluster");
 
-        // DOCKER - Para que se conecte al cluster pulbic-ip
-        clientConfig.setClusterName("docker-network");
+        // DOCKER - Para que se conecte al cluster public-ip
+        clientConfig.setClusterName("public-ip");
+        clientConfig.getNetworkConfig().addAddress("192.168.1.63");
         
-        // KUBERNETES????
-        //        clientConfig.getNetworkConfig().addAddress("hz-hazelcast");
+        // KUBERNETES
+//        clientConfig.getNetworkConfig().addAddress("hz-hazelcast");
 
         HazelcastInstance client = HazelcastClient.newHazelcastClient(clientConfig);
 
